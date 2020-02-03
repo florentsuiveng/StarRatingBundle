@@ -20,25 +20,24 @@ Installation
 Add the following to the "require" section of your `composer.json` file:
 
 ```
-    "blackknight467/star-rating-bundle": "2.*"
+    "repositories": [
+        {
+            "url": "https://github.com/dirkjf/StarRatingBundle",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "dirkjf/star-rating-bundle": "^3.0",
+    }
 ```
 
-### Step 2: Enable the bundle
-
-Enable the bundle in the kernel:
-
-```php
-<?php
-// app/appKernel.php
-
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new blackknight467\StarRatingBundle\StarRatingBundle(),
-    );
-}
+### Step 2: Add to twig.yaml
 ```
+paths:
+    '%kernel.project_dir%/vendor/dirkjf/star-rating-bundle/blackknight467/StarRatingBundle/Resources/views': StarRatingBundle
+```
+
+
 
 ### Step 3: Add the css
 
@@ -49,11 +48,11 @@ Add the css in your page head
 ```
 or
 ```
-	{% stylesheets
-      'bundles/starrating/css/rating.css'
-      filter="cssrewrite" %}
-      <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
-    {% endstylesheets %}
+{% stylesheets
+  'bundles/starrating/css/rating.css'
+  filter="cssrewrite" %}
+  <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+{% endstylesheets %}
 ```
 
 ### Step 4: Add the js
