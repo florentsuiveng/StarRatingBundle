@@ -1,7 +1,7 @@
 StarRatingBundle
 ================
 
-Star Rating Bundle for Symfony 3.  Requires Jquery and Font Awesome.
+Star Rating Bundle for Symfony 5....  Requires Jquery and Font Awesome.
 
 If Using Symfony 2.  Use version 1.*
 
