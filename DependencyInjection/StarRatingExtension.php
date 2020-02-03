@@ -28,7 +28,7 @@ class StarRatingExtension extends Extension
         $loader->load('services.yml');
 
         $resources = $container->getParameter('twig.form.resources');
-        $resources = array_merge(array('StarRatingBundle::rating.html.twig'), $resources);
+        $resources = array_merge(array('@StarRatingBundle/rating.html.twig'), $resources);
         $container->setParameter('twig.form.resources', $resources);
     }
 }
