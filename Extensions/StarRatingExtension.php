@@ -3,10 +3,11 @@
 namespace blackknight467\StarRatingBundle\Extensions;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class StarRatingExtension extends \Twig_Extension
+class StarRatingExtension extends AbstractExtension
 {
-
     protected $container;
 
     public function __construct(ContainerInterface $container)
@@ -17,7 +18,7 @@ class StarRatingExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('rating', array($this, 'rating'), array('is_safe' => array('all'))),
+            new TwigFilter('rating', array($this, 'rating'), array('is_safe' => array('all'))),
         );
     }
 
