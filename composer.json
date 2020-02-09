@@ -1,7 +1,7 @@
 {
     "name": "dirkjf/star-rating-bundle",
     "type": "symfony-bundle",
-    "description": "Star Rating Bundle for use with Symfony 2 using Font Awesome.  This bundle adds the 'rating' form type and rating filter to render ratings.  Simple and easy to use.",
+    "description": "Star Rating Bundle for use with Symfony 5 using Font Awesome. This bundle adds the 'rating' form type and rating filter to render ratings. Simple and easy to use.",
     "keywords": ["rating", "star", "bundle", "symfony", "symfony2"],
     "homepage": "http://github.com/blackknight467/StarRatingBundle",
     "license": "MIT",
@@ -11,14 +11,18 @@
             "email": "derickfelsman@gmail.com"
         },
         {
+            "name": "Dirk JF",
+        },
+        {
             "name": "Steven Ng"
         }
     ],
     "require": {
-        "php": ">=5.3.2"
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "^4.3|^5.0",
+        "symfony/templating": "^4.3|^5.0",
     },
     "require-dev": {
-        "symfony/framework-bundle": ">=2.1"
     },
     "autoload": {
         "psr-0": { "blackknight467\\StarRatingBundle": "" }

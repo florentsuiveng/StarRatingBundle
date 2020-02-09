@@ -3,7 +3,10 @@
 namespace blackknight467\StarRatingBundle\Extensions;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Templating\PhpEngine;
+use Symfony\Component\Templating\TemplateNameParser;
 use Twig\Extension\AbstractExtension;
+use Symfony\Component\Templating\Loader\FilesystemLoader;
 use Twig\TwigFilter;
 
 class StarRatingExtension extends AbstractExtension
@@ -24,14 +27,26 @@ class StarRatingExtension extends AbstractExtension
 
     public function rating($number, $max = 5, $starSize = "")
     {
-        return $this->container->get('templating')->render(
-            'StarRatingBundle:Display:ratingDisplay.html.twig',
+        $filesystemLoader = new FilesystemLoader(dirname(__DIR__, 1).'/Resources/views/%name%');
+        $templating = new PhpEngine(new TemplateNameParser(), $filesystemLoader);
+
+        return $templating->render(
+            'Display/ratingDisplay.php',
             array(
                 'stars' => $number,
                 'max' => $max,
                 'starSize' => $starSize
             )
         );
+
+//        return $this->container->get('templating')->render(
+//            'StarRatingBundle:Display:ratingDisplay.html.twig',
+//            array(
+//                'stars' => $number,
+//                'max' => $max,
+//                'starSize' => $starSize
+//            )
+//        );
     }
 
     public function getName()
